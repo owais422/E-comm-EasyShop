@@ -1,4 +1,6 @@
 import 'package:ecommerce_app/controllers/sign_in_controller.dart';
+import 'package:ecommerce_app/controllers/user_data_controller.dart';
+import 'package:ecommerce_app/screens/admin_panel/admin_main_screen.dart';
 import 'package:ecommerce_app/screens/auth_ui/forgot_password_screen.dart';
 import 'package:ecommerce_app/screens/auth_ui/signup_screen.dart';
 import 'package:ecommerce_app/screens/user_panel/main_screen.dart';
@@ -17,6 +19,7 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   final SignInController _signInController = Get.put(SignInController());
+  final UserDataController _userDataController = Get.put(UserDataController());
   final TextEditingController _emailController = TextEditingController();
  final TextEditingController _passwordController = TextEditingController();
   @override
@@ -138,16 +141,31 @@ class _SignInScreenState extends State<SignInScreen> {
                     } else {
                       UserCredential? userCredential =
                           await _signInController.SignInMethod(email, password);
+                   var userData = await _userDataController.getUserData(userCredential!.user!.uid);
                       if (userCredential != null) {
                         if (userCredential.user!.emailVerified) {
-                          Get.snackbar(
-                            "Success",
-                            "Login Successfully",
-                            snackPosition: SnackPosition.BOTTOM,
-                            backgroundColor: AppConstant.appSecondaryColor,
-                            colorText: AppConstant.appTextColor,
-                          );
-                          Get.offAll(()=> MainScreen());
+                        //
+                          if(userData[0]["isAdmin"]==true){
+                            Get.offAll(()=> AdminMainScreen())
+                            ;
+                            Get.snackbar(
+                              "Success",
+                              "Login Successfully! Welcome Admin",
+                              snackPosition: SnackPosition.BOTTOM,
+                              backgroundColor: AppConstant.appSecondaryColor,
+                              colorText: AppConstant.appTextColor,
+                            );
+                          }else{
+                            Get.offAll(()=>MainScreen());
+                            Get.snackbar(
+                              "Success",
+                              "Login Successfully",
+                              snackPosition: SnackPosition.BOTTOM,
+                              backgroundColor: AppConstant.appSecondaryColor,
+                              colorText: AppConstant.appTextColor,
+                            );
+                          }
+
                         } else {
                           Get.snackbar(
                             "Error",

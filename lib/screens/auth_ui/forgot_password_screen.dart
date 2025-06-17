@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/controllers/forget_password_controller.dart';
 import 'package:ecommerce_app/controllers/sign_in_controller.dart';
+import 'package:ecommerce_app/screens/auth_ui/signin_screen.dart';
 import 'package:ecommerce_app/screens/auth_ui/signup_screen.dart';
 import 'package:ecommerce_app/screens/user_panel/main_screen.dart';
 import 'package:ecommerce_app/utils/app_constant.dart';
@@ -90,10 +91,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       );
                     } else{
 forgotPasswordController.ForgotPasswordMethod(email);
+Get.offAll(()=>SignInScreen());
                     }
                   },
                   label: Text(
-                    "Sign In",
+                    "Forgot Password",
                     style: TextStyle(color: AppConstant.appTextColor),
                   ),
                 ),

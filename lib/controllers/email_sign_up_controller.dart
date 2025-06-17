@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce_app/controllers/device_token_controller.dart';
 import 'package:ecommerce_app/models/user_model.dart';
 import 'package:ecommerce_app/utils/app_constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,7 +11,7 @@ class EmailSignUpController extends GetxController {
   final fireStore = FirebaseFirestore.instance;
 
   //PasswordVisible
-  var isPasswordVisible = false.obs;
+  var isPasswordVisible = true.obs;
 
   Future<UserCredential?> SignUpMethod(
     String userName,
@@ -20,6 +21,7 @@ class EmailSignUpController extends GetxController {
     String userPassword,
     String userDeviceToken,
   ) async {
+
     try {
       EasyLoading.show(status: "Please wait..");
       UserCredential userCredential = await _firebaseAuth.createUserWithEmailAndPassword(email: userEmail,

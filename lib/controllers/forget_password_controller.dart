@@ -21,8 +21,9 @@ Future<void> ForgotPasswordMethod (String userEmail)async{
    snackPosition: SnackPosition.BOTTOM,
    backgroundColor: AppConstant.appSecondaryColor,
    colorText: AppConstant.appTextColor,
- );
 
+ );
+EasyLoading.dismiss();
   }catch(e){
     EasyLoading.dismiss();
     Get.snackbar(

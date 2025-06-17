@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/controllers/device_token_controller.dart';
 import 'package:ecommerce_app/controllers/email_sign_up_controller.dart';
 import 'package:ecommerce_app/controllers/forget_password_controller.dart';
 import 'package:ecommerce_app/screens/auth_ui/signin_screen.dart';
@@ -18,6 +19,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final EmailSignUpController emailSignUpController = Get.put(
     EmailSignUpController(),
   );
+  final DeviceTokenController deviceTokenController = Get.put(DeviceTokenController());
 
   TextEditingController userEmail = TextEditingController();
   TextEditingController userName = TextEditingController();
@@ -192,7 +194,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         colorText: AppConstant.appTextColor,
                       );
                     }else{
-                      UserCredential? userCredential = await emailSignUpController.SignUpMethod(name, email, phone, city, password, "");
+                      UserCredential? userCredential = await emailSignUpController.SignUpMethod(name, email, phone, city, password, deviceTokenController.deviceToken.toString());
                     if(userCredential!= null){
                       Get.snackbar(
                         "Verification email sent ",
