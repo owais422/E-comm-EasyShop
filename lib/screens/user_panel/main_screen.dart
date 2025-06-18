@@ -1,6 +1,6 @@
-
 import 'package:ecommerce_app/utils/app_constant.dart';
 import 'package:ecommerce_app/widgets/custom_drawer_widget.dart';
+import 'package:ecommerce_app/widgets/custom_heading_widget.dart';
 import 'package:ecommerce_app/widgets/custom_slider_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -10,8 +10,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class MainScreen extends StatelessWidget {
-const  MainScreen({super.key});
-
+  const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +31,8 @@ const  MainScreen({super.key});
           child: Column(
             children: [
               SizedBox(height: Get.height / 90),
-CustomSliderWidget()
-
+              CustomSliderWidget(),
+              CustomHeadingWidget(buttonText: "See more >",headingSubTitle: "low Budget",headingTitle: "Categories",onPress: (){},)
             ],
           ),
         ),
