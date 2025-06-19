@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:ecommerce_app/controllers/user_data_controller.dart';
 import 'package:ecommerce_app/screens/admin_panel/admin_main_screen.dart';
 import 'package:ecommerce_app/screens/auth_ui/welcome_screen.dart';
@@ -10,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
-import 'signup_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -31,10 +29,10 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
       Duration(seconds: 3),
       () {
-        AdminOrUser(context);
+        adminOrUser();
       });
   }
-  Future<void> AdminOrUser (BuildContext context)async{
+  Future<void> adminOrUser ()async{
 
     if(user!= null){
       final UserDataController userDataController = Get.put(UserDataController());
