@@ -1,18 +1,11 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ecommerce_app/models/categories_model.dart';
 import 'package:ecommerce_app/utils/app_constant.dart';
 import 'package:ecommerce_app/widgets/custom_categories_widget.dart';
 import 'package:ecommerce_app/widgets/custom_drawer_widget.dart';
+import 'package:ecommerce_app/widgets/custom_flash_sale_widget.dart';
 import 'package:ecommerce_app/widgets/custom_heading_widget.dart';
 import 'package:ecommerce_app/widgets/custom_slider_widget.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:image_card/image_card.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -49,6 +42,7 @@ CustomCategoriesWidget(),CustomHeadingWidget(
                 headingTitle: "Flash Sale",
                 onPress: () {},
               ),
+              CustomFlashSaleWidget()
             ],
           ),
         ),
