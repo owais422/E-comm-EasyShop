@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/screens/user_panel/all_category_screen.dart';
 import 'package:ecommerce_app/utils/app_constant.dart';
 import 'package:ecommerce_app/widgets/custom_categories_widget.dart';
 import 'package:ecommerce_app/widgets/custom_drawer_widget.dart';
@@ -34,7 +35,7 @@ class MainScreen extends StatelessWidget {
                 buttonText: "See more >",
                 headingSubTitle: "low Budget",
                 headingTitle: "Categories",
-                onPress: () {},
+                onPress: () => Get.to(AllCategoryScreen()),
               ),
 CustomCategoriesWidget(),CustomHeadingWidget(
                 buttonText: "See more >",

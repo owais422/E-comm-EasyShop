@@ -62,7 +62,9 @@ class CustomFlashSaleWidget extends StatelessWidget {
                           style: TextStyle(fontSize: 18,overflow: TextOverflow.ellipsis),
                         ),
                         //description: Text("data"),
-                        footer: Row(children: [Text("Rs ${productsModel.price}")],),
+                        footer: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [Text("Rs ${productsModel.price} (Sale)",style: TextStyle(fontWeight: FontWeight.bold),),Text("Rs ${productsModel.fullPrice}",style: TextStyle(decoration:TextDecoration.lineThrough,color: Colors.red),)],),
 
                       ),
                     ],
